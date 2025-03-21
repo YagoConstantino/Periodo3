@@ -1,0 +1,20 @@
+     1                                  section .data
+     2 00000000 0300                        num1 DW 3           ; Define num1 como 3 (32 bits)
+     3 00000002 0600                        num2 DW 6           ; Define num2 como 6 (32 bits)
+     4 00000004 00000000                    res DD 0            ; Espaço para armazenar o resultado
+     5                                  
+     6                                  section .text
+     7                                      global main
+     8                                  
+     9                                  main:
+    10                                      ; Carregar valores em EAX e EBX
+    11 00000000 A1[00000000]                mov EAX, [num1]     ; Move o valor de num1 para EAX
+    12 00000005 8B1D[02000000]              mov EBX, [num2]     ; Move o valor de num2 para EBX
+    13 0000000B 01D8                        add EAX, EBX        ; Soma EAX + EBX
+    14                                  
+    15                                      ; Armazena o resultado em 'res'
+    16 0000000D A3[04000000]                mov [res], EAX     
+    17                                  
+    18                                      ; Finaliza o programa
+    19 00000012 B800000000                  mov EAX, 0
+    20 00000017 C3                          ret
