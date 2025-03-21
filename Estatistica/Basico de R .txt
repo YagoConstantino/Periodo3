@@ -1,0 +1,90 @@
+--------------------------------------------------
+Parte 2: Comandos Básicos do R
+--------------------------------------------------
+# Operações Matemáticas:
+2 + 3       # Soma
+5 - 2       # Subtração
+3 * 4       # Multiplicação
+10 / 2      # Divisão
+2^3         # Potência (2 elevado a 3)
+sqrt(16)    # Raiz quadrada
+
+# Criando Variáveis:
+x <- 10
+y <- 5
+z <- x + y
+z           # Exibe o valor de z
+
+# Criando Vetores:
+valores <- c(10, 20, 30, 40, 50)   # Cria um vetor com os valores
+valores[1]                        # Acessa o primeiro elemento
+sum(valores)                      # Soma de todos os elementos
+mean(valores)                     # Média dos elementos
+
+# Criando Data Frames:
+dados <- data.frame(
+  Nome = c("Ana", "Bruno", "Carlos"),
+  Idade = c(22, 25, 30),
+  Altura = c(1.60, 1.75, 1.80)
+)
+dados                             # Exibe o data frame
+dados$Idade                       # Acessa a coluna de Idade
+
+--------------------------------------------------
+Parte 3: Estatística Básica com R
+--------------------------------------------------
+# Medidas de Tendência Central:
+dados_num <- c(10, 20, 30, 40, 50)
+mean(dados_num)    # Média
+median(dados_num)  # Mediana
+
+# Medidas de Dispersão:
+sd(dados_num)      # Desvio padrão
+var(dados_num)     # Variância
+range(dados_num)   # Mínimo e máximo
+
+# Resumo Estatístico:
+summary(dados_num)
+
+--------------------------------------------------
+Parte 4: Criando Gráficos Simples no R
+--------------------------------------------------
+# Histograma:
+hist(dados_num, main = "Histograma", xlab = "Valores", col = "blue")
+
+# Gráfico de Dispersão:
+x <- c(10, 20, 30, 40, 50)
+y <- c(2, 4, 6, 8, 10)
+plot(x, y, main = "Gráfico de Dispersão", xlab = "X", ylab = "Y", col = "red")
+
+# Gráfico de Barras:
+nomes <- c("A", "B", "C", "D")
+valores <- c(5, 10, 15, 20)
+barplot(valores, names.arg = nomes, col = "green", main = "Gráfico de Barras")
+
+--------------------------------------------------
+Parte 5: Regressão Linear (Análise Estatística)
+--------------------------------------------------
+# Exemplo de Regressão Linear Simples:
+x <- c(1, 2, 3, 4, 5)
+y <- c(2, 4, 6, 8, 10)
+modelo <- lm(y ~ x)  # Cria o modelo de regressão linear
+summary(modelo)      # Exibe o resumo do modelo
+
+# Teste dos coeficientes (necessita do pacote lmtest):
+library(lmtest)
+coeftest(modelo)
+
+--------------------------------------------------
+Parte 6: Importando e Exportando Dados
+--------------------------------------------------
+# Importando um arquivo CSV:
+dados_csv <- read.csv("meuarquivo.csv")
+head(dados_csv)
+
+# Exportando dados para um arquivo CSV:
+write.csv(dados_csv, "resultado.csv")
+
+# Usando um conjunto de dados de exemplo:
+data(mtcars)
+head(mtcars)
